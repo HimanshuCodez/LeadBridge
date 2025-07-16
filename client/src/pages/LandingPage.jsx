@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -24,15 +25,19 @@ export default function LandingPage() {
         >
           🚀 Simplify your sales process, manage leads smartly, and close more deals — all in one place.
         </motion.p>
+<Link
+to={"/dashboard"}
+>
 
         <motion.a
-          href="/dashboard"
+         
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-2xl transition-all"
         >
           Go to Dashboard →
         </motion.a>
+        </Link>
       </motion.div>
     </div>
   );
