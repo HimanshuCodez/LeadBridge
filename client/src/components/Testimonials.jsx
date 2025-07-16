@@ -1,63 +1,58 @@
-// src/components/Testimonials.jsx
-import { motion } from "framer-motion"
-
-const testimonials = [
-  {
-    name: "Aman Jha",
-    feedback:
-      "LeadBridge transformed how we manage leads. Clean UI, fast tracking, and it just works!",
-    image: "https://ui-avatars.com/api/?name=Aman+Jha&background=0D8ABC&color=fff",
-  },
-  {
-    name: "Sneha Patel",
-    feedback:
-      "As a startup founder, LeadBridge helped my team stay organized and close more deals!",
-    image: "https://ui-avatars.com/api/?name=Sneha+Patel&background=8E44AD&color=fff",
-  },
-]
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.3,
-      duration: 0.6,
-      ease: "easeOut",
+export default function Testimonials() {
+  const testimonials = [
+    {
+      name: "Aman Jha",
+      feedback:
+        "LeadBridge transformed how we manage leads. Clean UI, fast tracking, and it just works!",
+      image: "https://randomuser.me/api/portraits/men/32.jpg",
     },
-  }),
-}
+    {
+      name: "Sneha Patel",
+      feedback:
+        "As a startup founder, LeadBridge helped my team stay organized and close more deals!",
+      image: "https://randomuser.me/api/portraits/women/65.jpg",
+    },
+    {
+      name: "Rahul Mehta",
+      feedback:
+        "Simple yet powerful. Great user experience and automation for our sales pipeline.",
+      image: "https://randomuser.me/api/portraits/men/55.jpg",
+    },
+    {
+      name: "Pooja Singh",
+      feedback:
+        "Highly recommend LeadBridge. Easy to onboard my team and saved hours every week.",
+      image: "https://randomuser.me/api/portraits/women/42.jpg",
+    },
+  ]
 
-export function Testimonials() {
   return (
-    <section className="bg-gray-50 py-20 px-6 md:px-20">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
+    <section className="bg-gray-50 py-16 px-4">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-3xl font-extrabold text-gray-800 mb-10">
           💬 What Our Users Say
         </h2>
-        <div className="grid gap-8 sm:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-left hover:shadow-xl transition-all"
-              custom={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={cardVariants}
-            >
-              <div className="flex items-center mb-4">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                />
-                <p className="font-semibold text-gray-800">{t.name}</p>
+        <div className="overflow-hidden">
+          <div className="flex gap-6 animate-[scroll_40s_linear_infinite]">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 bg-white w-[300px] px-6 py-6 rounded-xl shadow-md border border-gray-200 text-left hover:shadow-xl transition-all"
+              >
+                <div className="flex items-center mb-4">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <p className="font-semibold text-gray-800 text-sm">{t.name}</p>
+                </div>
+                <p className="text-gray-600 text-sm italic leading-relaxed">
+                  “{t.feedback}”
+                </p>
               </div>
-              <p className="text-gray-600 italic">“{t.feedback}”</p>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
