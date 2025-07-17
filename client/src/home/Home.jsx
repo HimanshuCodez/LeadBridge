@@ -9,16 +9,19 @@ import TrustedBy from '../components/TrustedBy'
 import Chart from '../components/Chart'
 import Chart2 from '../components/Chart2'
 
+import PricingComparison from '../components/Pricing'
+
 const Home = () => {
   return (
     <div>
         <Navbar/>
         <HeroSection/>
         <TrustedBy/>
-        <Chart/>
         <FeaturesGrid/>
-        <Chart2/>
+        <Chart/>
+        <PricingComparison/>
         <TutorialVideo/>
+        <Chart2/>
         <Testimonials/>
         <Footer/>
     </div>

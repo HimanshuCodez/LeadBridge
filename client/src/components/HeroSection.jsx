@@ -1,13 +1,17 @@
-// src/components/HeroSection.jsx
 import { Link } from "react-router-dom"
-
+import { motion } from "framer-motion"
 
 export default function HeroSection() {
   return (
     <section className="bg-gradient-to-br from-blue-100 to-purple-200 py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left content */}
-        <div className="text-center md:text-left flex-1">
+        <motion.div
+          className="text-center md:text-left flex-1"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-4">
             Supercharge Your <span className="text-blue-600">Sales</span> with LeadBridge
           </h1>
@@ -19,16 +23,24 @@ export default function HeroSection() {
               Get Started Free
             </button>
           </Link>
-        </div>
+        </motion.div>
 
-        {/* Right image */}
-        <div className="flex-1">
-          <img
-            src="https://i.pinimg.com/1200x/b3/25/f2/b325f2363b4a4d8ee987016352772776.jpg"
-            alt="CRM dashboard"
+        {/* Right video */}
+        <motion.div
+          className="flex-1"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            src="https://web-assets.zendesk.com/images/p-zendesk-sell-overview/hero.mp4"
             className="w-full max-w-md rounded-xl mx-auto drop-shadow-lg"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   )
