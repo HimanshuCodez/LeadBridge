@@ -26,7 +26,7 @@ export default function LandingPage() {
           🚀 Simplify your sales process, manage leads smartly, and close more deals — all in one place.
         </motion.p>
 <Link
-to={"/dashboard"}
+to={"/home"}
 >
 
         <motion.a
